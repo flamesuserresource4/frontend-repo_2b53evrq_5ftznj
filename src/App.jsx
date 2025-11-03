@@ -1,28 +1,38 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-white text-neutral-900 antialiased dark:bg-neutral-950 dark:text-white">
+      <Navbar />
 
-export default App
+      <main>
+        <Hero />
+
+        <section id="about" className="py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="grid items-center gap-10 md:grid-cols-2">
+              <div>
+                <h2 className="text-2xl font-bold tracking-tight">About me</h2>
+                <p className="mt-3 text-neutral-700 dark:text-neutral-300">
+                  I’m a creative developer focused on building immersive, performant, and accessible experiences. My toolkit spans React, FastAPI, Tailwind, and 3D with Spline. I love turning complex ideas into simple, delightful interfaces.
+                </p>
+                <p className="mt-3 text-neutral-700 dark:text-neutral-300">
+                  When I’m not coding, I explore generative art and contribute to open-source projects.
+                </p>
+              </div>
+              <div className="relative">
+                <div className="aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500/20 via-fuchsia-500/20 to-amber-500/20 ring-1 ring-inset ring-black/5 dark:ring-white/10" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Projects />
+        <Contact />
+      </main>
+    </div>
+  );
+}
